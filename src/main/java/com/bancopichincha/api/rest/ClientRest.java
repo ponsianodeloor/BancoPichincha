@@ -12,26 +12,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bancopichincha.api.model.Person;
-import com.bancopichincha.api.service.PersonService;
+import com.bancopichincha.api.model.Client;
+import com.bancopichincha.api.service.ClientService;
 
 @RestController
-@RequestMapping("/person")
-public class PersonRest {
+@RequestMapping("/client")
+public class ClientRest {
 	
 	@Autowired
-	private PersonService personService;
+	private ClientService clientService;
 	
 	@GetMapping 
-	private ResponseEntity<List<Person>> getAllPersons(){
-		return ResponseEntity.ok(personService.findAll());
+	private ResponseEntity<List<Client>> getAllClients(){
+		return ResponseEntity.ok(clientService.findAll());
 	}
 	
 	@PostMapping
-	private ResponseEntity<Person> savePerson (@RequestBody Person person){
+	private ResponseEntity<Client> saveClient (@RequestBody Client client){
 		try {
-			Person savedPerson = personService.save(person);		
-		return ResponseEntity.created(new URI("/person/"+savedPerson.getId())).body(savedPerson);
+			Client savedClient = clientService.save(client);		
+		return ResponseEntity.created(new URI("/client/"+savedClient.getId())).body(savedClient);
 		} catch (Exception e) {
 			System.out.println("Error " + e.toString());
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
