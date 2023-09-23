@@ -23,16 +23,19 @@ public class Account {
 	private Client client;
 	
 	private int balance;
+	
+	private String numberAccount;
 
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Account(AccountType accountType, Client client, int balance) {
+	public Account(AccountType accountType, Client client, int balance, String numberAccount) {
 		super();
 		this.accountType = accountType;
 		this.client = client;
 		this.balance = balance;
+		this.numberAccount = numberAccount;
 	}
 
 	public Long getId() {
@@ -67,6 +70,12 @@ public class Account {
 		this.balance = balance;
 	}
 
-	
+	public String getNumberAccount() {
+		return numberAccount;
+	}
+
+	public void setNumberAccount(String numberAccount) {
+		this.numberAccount = numberAccount;
+	}
 	
 }

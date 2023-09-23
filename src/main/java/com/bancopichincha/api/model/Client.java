@@ -1,5 +1,7 @@
 package com.bancopichincha.api.model;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,17 +21,19 @@ public class Client {
 	private Person person;
 	
 	private String password;
-	private boolean active;
+	
+	@Value("${props.boolean.isActive:#{true}}")
+	private boolean isActive = true;
 	
 	public Client() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Client(Person person, String password, boolean active) {
+	public Client(Person person, String password, boolean isActive) {
 		super();
 		this.person = person;
 		this.password = password;
-		this.active = active;
+		this.isActive = isActive;
 	}
 
 	public Long getId() {
@@ -57,12 +61,13 @@ public class Client {
 	}
 
 	public boolean isActive() {
-		return active;
+		return isActive;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
+
 	
 	
 }

@@ -15,25 +15,22 @@ public class Transactions {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "account_from")
-	private Account accountFrom;
-	
-	@ManyToOne
-	@JoinColumn(name = "account_to")
-	private Account accountTo;
+	@JoinColumn(name = "account_id")
+	private Account account;
 	
 	private int balance;
+	
 	private int amount;
 	private int new_balance;
+	private String description;
 	
 	public Transactions() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transactions(Account accountFrom, Account accountTo, int balance, int amount, int new_balance) {
+	public Transactions(Account account, int balance, int amount, int new_balance, String description) {
 		super();
-		this.accountFrom = accountFrom;
-		this.accountTo = accountTo;
+		this.account = account;
 		this.balance = balance;
 		this.amount = amount;
 		this.new_balance = new_balance;
@@ -47,20 +44,12 @@ public class Transactions {
 		this.id = id;
 	}
 
-	public Account getAccountFrom() {
-		return accountFrom;
+	public Account getAccount() {
+		return account;
 	}
 
 	public void setAccountFrom(Account accountFrom) {
-		this.accountFrom = accountFrom;
-	}
-
-	public Account getAccountTo() {
-		return accountTo;
-	}
-
-	public void setAccountTo(Account accountTo) {
-		this.accountTo = accountTo;
+		this.account = accountFrom;
 	}
 
 	public int getBalance() {
@@ -85,6 +74,14 @@ public class Transactions {
 
 	public void setNew_balance(int new_balance) {
 		this.new_balance = new_balance;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	
