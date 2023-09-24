@@ -12,14 +12,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 import org.springframework.stereotype.Service;
 
-import com.bancopichincha.api.model.Account;
-import com.bancopichincha.api.repository.AccountRepository;
+import com.bancopichincha.api.model.Transaction;
+import com.bancopichincha.api.repository.TransactionRepository;
 
 @Service
-public class AccountService implements AccountRepository {
+public class TransactionService implements TransactionRepository {
 	
 	@Autowired
-	private AccountRepository accountRepository;
+	private TransactionRepository transactionRepository;
+	
 
 	@Override
 	public void flush() {
@@ -28,19 +29,19 @@ public class AccountService implements AccountRepository {
 	}
 
 	@Override
-	public <S extends Account> S saveAndFlush(S entity) {
+	public <S extends Transaction> S saveAndFlush(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Account> List<S> saveAllAndFlush(Iterable<S> entities) {
+	public <S extends Transaction> List<S> saveAllAndFlush(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteAllInBatch(Iterable<Account> entities) {
+	public void deleteAllInBatch(Iterable<Transaction> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -58,61 +59,61 @@ public class AccountService implements AccountRepository {
 	}
 
 	@Override
-	public Account getOne(Long id) {
+	public Transaction getOne(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Account getById(Long id) {
+	public Transaction getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Account getReferenceById(Long id) {
-		// TODO Auto-generated method stub
-		return accountRepository.getReferenceById(id);
-	}
-
-	@Override
-	public <S extends Account> List<S> findAll(Example<S> example) {
+	public Transaction getReferenceById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Account> List<S> findAll(Example<S> example, Sort sort) {
+	public <S extends Transaction> List<S> findAll(Example<S> example) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Account> List<S> saveAll(Iterable<S> entities) {
+	public <S extends Transaction> List<S> findAll(Example<S> example, Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Account> findAll() {
+	public <S extends Transaction> List<S> saveAll(Iterable<S> entities) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Transaction> findAll() {
 		
-		return accountRepository.findAll();
+		return transactionRepository.findAll();
 	}
 
 	@Override
-	public List<Account> findAllById(Iterable<Long> ids) {
+	public List<Transaction> findAllById(Iterable<Long> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Account> S save(S entity) {
+	public <S extends Transaction> S save(S entity) {
 		
-		return accountRepository.save(entity);
+		return transactionRepository.save(entity);
 	}
 
 	@Override
-	public Optional<Account> findById(Long id) {
+	public Optional<Transaction> findById(Long id) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
@@ -136,7 +137,7 @@ public class AccountService implements AccountRepository {
 	}
 
 	@Override
-	public void delete(Account entity) {
+	public void delete(Transaction entity) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -148,7 +149,7 @@ public class AccountService implements AccountRepository {
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends Account> entities) {
+	public void deleteAll(Iterable<? extends Transaction> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -160,43 +161,44 @@ public class AccountService implements AccountRepository {
 	}
 
 	@Override
-	public List<Account> findAll(Sort sort) {
+	public List<Transaction> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Page<Account> findAll(Pageable pageable) {
+	public Page<Transaction> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Account> Optional<S> findOne(Example<S> example) {
+	public <S extends Transaction> Optional<S> findOne(Example<S> example) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
 	@Override
-	public <S extends Account> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public <S extends Transaction> Page<S> findAll(Example<S> example, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Account> long count(Example<S> example) {
+	public <S extends Transaction> long count(Example<S> example) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public <S extends Account> boolean exists(Example<S> example) {
+	public <S extends Transaction> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public <S extends Account, R> R findBy(Example<S> example, Function<FetchableFluentQuery<S>, R> queryFunction) {
+	public <S extends Transaction, R> R findBy(Example<S> example,
+			Function<FetchableFluentQuery<S>, R> queryFunction) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,5 +1,7 @@
 package com.bancopichincha.api.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,7 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Transactions {
+public class Transaction {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,22 +20,34 @@ public class Transactions {
 	@JoinColumn(name = "account_id")
 	private Account account;
 	
+	private int transactionType;
 	private int balance;
-	
 	private int amount;
-	private int new_balance;
+	private int newBalance;
 	private String description;
+	private LocalDateTime  dateRegister;
 	
-	public Transactions() {
+	public Transaction() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transactions(Account account, int balance, int amount, int new_balance, String description) {
+	public Transaction(
+			Account account, 
+			int transactionType, 
+			int balance, 
+			int amount, 
+			int newBalance, 
+			String description, 
+			LocalDateTime dateRegister
+	){
 		super();
 		this.account = account;
+		this.transactionType = transactionType;
 		this.balance = balance;
 		this.amount = amount;
-		this.new_balance = new_balance;
+		this.newBalance = newBalance;
+		this.description = description;
+		this.dateRegister = dateRegister;
 	}
 
 	public Long getId() {
@@ -47,9 +61,17 @@ public class Transactions {
 	public Account getAccount() {
 		return account;
 	}
+	
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 
-	public void setAccountFrom(Account accountFrom) {
-		this.account = accountFrom;
+	public int getTransactionType() {
+		return transactionType;
+	}
+
+	public void setTransactionType(int transactionType) {
+		this.transactionType = transactionType;
 	}
 
 	public int getBalance() {
@@ -67,13 +89,13 @@ public class Transactions {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-
-	public int getNew_balance() {
-		return new_balance;
+	
+	public int getNewBalance() {
+		return newBalance;
 	}
 
-	public void setNew_balance(int new_balance) {
-		this.new_balance = new_balance;
+	public void setNewBalance(int newBalance) {
+		this.newBalance = newBalance;
 	}
 
 	public String getDescription() {
@@ -83,6 +105,13 @@ public class Transactions {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public LocalDateTime getDateRegister() {
+		return dateRegister;
+	}
+
+	public void setDateRegister(LocalDateTime dateRegister) {
+		this.dateRegister = dateRegister;
+	}
 	
 }
