@@ -35,8 +35,7 @@ public class TransactionRest {
 	@PostMapping
 	private ResponseEntity<Transaction> saveTransaction (@RequestBody Transaction transaction){
 		
-		//obtener el balance de la cuenta bancaria del cliente
-		LocalDateTime localDateTime = null; 
+		//obtener el balance de la cuenta bancaria del cliente 
 		int balance = accountService.getReferenceById(transaction.getAccount().getId()).getBalance();
 		int newBalance = 0;
 		
@@ -58,7 +57,7 @@ public class TransactionRest {
 		
 		transaction.setBalance(balance);
 		transaction.setNewBalance(newBalance);
-		transaction.setDateRegister(localDateTime.now());
+		transaction.setDateRegister(LocalDateTime.now());
 		
 		try {
 			Transaction savedTransaction = transactionService.save(transaction);		
